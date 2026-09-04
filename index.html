@@ -140,8 +140,10 @@
     border:1px solid rgba(53,224,161,.3);white-space:nowrap}
   .hourset{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;
     gap:.4em;margin-top:.8em;max-width:100%}
-  .hourset .hours{margin-top:0;flex:none}
-  .contact .hours{white-space:normal;text-wrap:balance;align-items:flex-start;line-height:1.4}
+  .hourset .hours{margin-top:0;flex:0 1 auto;min-width:0;max-width:100%;box-sizing:border-box}
+  .hourset .hours > span{font-size:12px}
+  .contact .hours{white-space:normal;text-wrap:balance;align-items:flex-start;line-height:1.4;
+    width:auto;max-width:100%;box-sizing:border-box}
   .contact .hours svg{margin-top:.12em}
   .hours svg{width:1.1em;height:1.1em;flex:none;stroke:currentColor;fill:none;stroke-width:2.1;
     stroke-linecap:round;stroke-linejoin:round}
@@ -416,8 +418,9 @@
     .id .role{margin-top:.8em;font-size:.82em;letter-spacing:.1em}
     .id .venue{font-size:.92em;margin-top:.35em}
     .hourset{justify-content:center;margin-top:1em;gap:.5em}
-    .hours{font-size:.66em;padding:.5em .95em}
-    .hours .hdays,.hours.htime > span{font-size:1.4em !important}
+    .hours{font-size:.66em;padding:.5em .95em;white-space:nowrap;text-align:center;justify-content:center;
+      width:fit-content;max-width:100%;box-sizing:border-box;line-height:1.35;flex:0 0 auto}
+    .hourset .hours > span,.hourset .hours .hdays{font-size:1.4em}
     .greview{font-size:.78em;margin-top:1.15em;max-width:100%;padding:.6em 1em}
     .howmini{display:none}
     .preview-chip{font-size:.6em}
@@ -489,8 +492,8 @@
         <div class="role" id="f-role"></div>
         <div class="venue" id="f-venue"></div>
         <div class="hourset" id="f-hours">
-          <span class="hours"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 1.9"/></svg><span class="hdays" style="font-size:12px"></span></span>
-          <span class="hours htime"><span style="font-size:12px"></span></span>
+          <span class="hours"><span class="hdays"></span></span>
+          <span class="hours htime"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.2 1.9"/></svg><span></span></span>
         </div>
         <a class="greview" href="https://maps.app.goo.gl/oavzR5w3rNfJwbXA8" target="_blank" rel="noopener">
           <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45L2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45L2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45L2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45L2.6 9.45l6.5-.95z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45L2.6 9.45l6.5-.95z"/></svg></span>
@@ -712,8 +715,20 @@ function fitOneLine(el, max, min, step, reserve = 0){
 }
 const nameEl = $('f-name');
 const brandEl = document.querySelector('.front .brand');
+function fitHours(){
+  const set = $('f-hours'); if (!set) return;
+  const avail = set.clientWidth;
+  set.querySelectorAll('.hours').forEach(chip => {
+    const txt = chip.querySelector('.hdays') || chip.querySelector('span');
+    txt.style.fontSize = '';
+    let size = parseFloat(getComputedStyle(txt).fontSize), guard = 40;
+    while (chip.scrollWidth > avail && size > 9 && guard-- > 0){
+      size -= .5; txt.style.fontSize = size + 'px';
+    }
+  });
+}
 function fitFront(){
-  if (portraitMQ.matches){ nameEl.style.fontSize = ''; return; }
+  if (portraitMQ.matches){ nameEl.style.fontSize = ''; fitHours(); return; }
   /* keep clear of the brand mark in the top-right corner */
   const reserve = brandEl ? brandEl.offsetWidth + 12 : 0;
   fitOneLine(nameEl, 1.95, 1.1, .035, reserve);

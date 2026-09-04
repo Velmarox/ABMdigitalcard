@@ -15,6 +15,9 @@ v0.2.0-alpha (2026-09-04)
 - Portrait type floor: smallest text on the front is ~12px at 320px wide, 14-19px on common phones.
   Hours chips, role, venue and Google review enlarged; the tiny "how to review" line is hidden on
   portrait (it repeats on the back).
+- Hours chips ("Saturday & Sunday mornings", time) size to their content, wrap when needed and keep
+  equal left/right padding on every phone width; they no longer overflow the card's right edge.
+  "Saturday & Sunday mornings" auto-shrinks to fit one line; the clock icon moved to the time chip.
   (archived: _version_archive/auroradigitalcard_v0.1.4-alpha/index.html)
 
 v0.1.4-alpha (2026-09-04)
