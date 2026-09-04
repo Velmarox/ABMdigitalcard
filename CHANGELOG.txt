@@ -18,6 +18,7 @@ v0.2.0-alpha (2026-09-04)
 - Hours chips ("Saturday & Sunday mornings", time) size to their content, wrap when needed and keep
   equal left/right padding on every phone width; they no longer overflow the card's right edge.
   "Saturday & Sunday mornings" auto-shrinks to fit one line; the clock icon moved to the time chip.
+- Flip buttons alternate TAP HERE / circle-arrows every other pulse again (slow 6.4s cycle).
   (archived: _version_archive/auroradigitalcard_v0.1.4-alpha/index.html)
 
 v0.1.4-alpha (2026-09-04)
