@@ -19,6 +19,8 @@ v0.2.0-alpha (2026-09-04)
   equal left/right padding on every phone width; they no longer overflow the card's right edge.
   "Saturday & Sunday mornings" auto-shrinks to fit one line; the clock icon moved to the time chip.
 - Flip buttons alternate TAP HERE / circle-arrows every other pulse again (slow 6.4s cycle).
+- Flip-button pulse and button shimmer now run even when the OS has "reduce motion" on
+  (they're wayfinding cues); other motion still respects the setting.
   (archived: _version_archive/auroradigitalcard_v0.1.4-alpha/index.html)
 
 v0.1.4-alpha (2026-09-04)

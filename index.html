@@ -196,7 +196,6 @@
   .links a:nth-child(2)::after{animation-delay:2.6s}.links a:nth-child(3)::after{animation-delay:3s}
   .links a:nth-child(4)::after{animation-delay:3.4s}.visit .dir::after{animation-delay:4.2s}.rev .go::after{animation-delay:5s}
   @keyframes shimmer{0%,80%{background-position:130% 0}100%{background-position:-30% 0}}
-  @media (prefers-reduced-motion:reduce){.greview::after,.save::after,.row a::after,.links a::after,.visit .dir::after,.rev .go::after{animation:none;display:none}}
 
   /* ---- circular flip control ---- */
   .cflip{position:absolute;right:.9em;bottom:.9em;z-index:20;width:2.45em;height:2.45em;border-radius:50%;
@@ -227,7 +226,6 @@
   @keyframes showA{0%,50%,100%{opacity:0}25%{opacity:1}}
   @keyframes showB{0%,50%,100%{opacity:0}75%{opacity:1}}
   .back .cflip{overflow:visible}
-  @media (prefers-reduced-motion:reduce){.cflip,.cflip::after,.cflip .ring2,.cflip .tapword,.cflip .arrows{animation:none}.cflip .arrows{display:none}.cflip .tapword{opacity:1}}
   /* on the opened sheet it floats above the scrolling content, at a fixed pixel size */
   .back .cflip{font-size:16px;right:18px;bottom:18px;width:56px;height:56px;
     background:rgba(10,13,21,.86)}
@@ -453,7 +451,10 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    *:not(.cflip):not(.cflip *):not(.greview):not(.save):not(.row a):not(.links a):not(.visit .dir):not(.rev .go),
+    *:not(.cflip):not(.greview):not(.save):not(.row a):not(.links a):not(.visit .dir):not(.rev .go)::before,
+    *:not(.cflip):not(.greview):not(.save):not(.row a):not(.links a):not(.visit .dir):not(.rev .go)::after{
+      animation-duration:.001ms !important;animation-iteration-count:1 !important;
       transition-duration:.001ms !important;scroll-behavior:auto !important}
   }
 </style>
