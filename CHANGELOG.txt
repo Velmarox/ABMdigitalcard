@@ -6,6 +6,11 @@ Deployed web repo: the version lives in <meta name="version"> in index.html and 
 not on the root folder name (renaming the root would break Firebase/Actions paths).
 Archived (outgoing-version) copies live in _version_archive/, never in the working tree.
 
+v0.2.1-alpha (2026-09-04)
+- Site build credit in the back-sheet footer: "Site by Jamie Merwin" on its own line under the
+  address/website line, 10.5px in the dim footer colour.
+  (archived: _version_archive/auroradigitalcard_v0.2.0-alpha/index.html)
+
 v0.2.0-alpha (2026-09-04)
 - New: portrait card layout on phones (portrait orientation, <=820px). Card is 1:1.6 tall, front
   content stacks and centres (brand, photo, name, phone, role, hours, review) at a 620px design
