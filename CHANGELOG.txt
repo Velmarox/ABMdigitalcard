@@ -6,6 +6,17 @@ Deployed web repo: the version lives in <meta name="version"> in index.html and 
 not on the root folder name (renaming the root would break Firebase/Actions paths).
 Archived (outgoing-version) copies live in _version_archive/, never in the working tree.
 
+v0.2.0-alpha (2026-09-04)
+- New: portrait card layout on phones (portrait orientation, <=820px). Card is 1:1.6 tall, front
+  content stacks and centres (brand, photo, name, phone, role, hours, review) at a 620px design
+  width scaled to the screen, so type is roughly 1.6x larger than the landscape card was.
+  Landscape / desktop card unchanged. TAP HERE stays centred below the card; card lifts 40px so
+  the button fits on short screens (iPhone SE, 320x640).
+- Portrait type floor: smallest text on the front is ~12px at 320px wide, 14-19px on common phones.
+  Hours chips, role, venue and Google review enlarged; the tiny "how to review" line is hidden on
+  portrait (it repeats on the back).
+  (archived: _version_archive/auroradigitalcard_v0.1.4-alpha/index.html)
+
 v0.1.4-alpha (2026-09-04)
 - Buttons read more clearly as buttons: lighter raised surface, stronger border, deeper shadow on
   Save contact, Call/Text/Email, links, Get Directions (now a bordered button inside the venue panel).
