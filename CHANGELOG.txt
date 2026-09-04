@@ -6,6 +6,12 @@ Deployed web repo: the version lives in <meta name="version"> in index.html and 
 not on the root folder name (renaming the root would break Firebase/Actions paths).
 Archived (outgoing-version) copies live in _version_archive/, never in the working tree.
 
+v0.1.3-alpha (2026-09-04)
+- Fix: uneven side padding on the opened sheet on mobile. Sheet and open card now size to the real
+  viewport width (100dvw fallback 100vw), gutters are symmetric and safe-area aware, and the sheet's
+  scrollbar is hidden on touch devices so it no longer eats the right gutter.
+  (archived: _version_archive/auroradigitalcard_v0.1.2-alpha/index.html)
+
 v0.1.2-alpha (2026-09-04)
 - Flip button reads "TAP HERE" constantly (arrows alternation removed); soft blink kept.
 - Mobile: front flip button sits centered just below the card (thumb zone) instead of the corner.

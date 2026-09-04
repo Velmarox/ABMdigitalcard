@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#121212">
-<meta name="version" content="v0.1.3-alpha">
+<meta name="version" content="v0.1.2-alpha">
 <meta name="description" content="Aurora Casino — digital business card, weekly promos, and directions.">
 <title>Aurora Casino — Contact &amp; Promos</title>
 
@@ -37,8 +37,6 @@
     --vh:100vh;
   }
   @supports (height:100dvh){ :root{ --vh:100dvh } }
-  :root{ --vw:100vw }
-  @supports (width:100dvw){ :root{ --vw:100dvw } }
 
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);
@@ -74,7 +72,7 @@
     transition:width .85s var(--ease), height .85s var(--ease), transform .85s var(--ease);
     -webkit-tap-highlight-color:transparent}
   /* flipping also opens the card out to fill the viewport */
-  .card.open{width:var(--vw);height:var(--vh);transform:translate(-50%,-50%) rotateY(180deg) rotate(0deg)}
+  .card.open{width:100vw;height:var(--vh);transform:translate(-50%,-50%) rotateY(180deg) rotate(0deg)}
   .stage.settled{perspective:none}
   .card.open.settled{transform:translate(-50%,-50%);transform-style:flat}
   .card.open.settled .face{backface-visibility:visible;-webkit-backface-visibility:visible}
@@ -215,14 +213,12 @@
   /* Laid out at viewport size at all times so opening the card reveals it
      instead of reflowing it mid-animation. */
   .back{background:var(--bg)}
-  .sheet{position:absolute;top:0;left:0;width:var(--vw);height:var(--vh);z-index:1;background:transparent;
+  .sheet{position:absolute;top:0;left:0;width:100vw;height:var(--vh);z-index:1;background:transparent;
     overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
     scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
-  @media (pointer:coarse){.sheet{scrollbar-width:none}.sheet::-webkit-scrollbar{display:none}}
   .sheet::-webkit-scrollbar{width:10px}
   .sheet::-webkit-scrollbar-thumb{background:var(--line2);border-radius:0;border:3px solid transparent;background-clip:content-box}
-  .sheet-in{max-width:1140px;margin:0 auto;
-    padding:18px max(18px,env(safe-area-inset-right)) 90px max(18px,env(safe-area-inset-left))}
+  .sheet-in{max-width:1140px;margin:0 auto;padding:18px 18px 90px}
 
   .shead{display:flex;align-items:center;gap:12px;padding:6px 2px 18px}
   .shead .mark{width:38px;height:38px;border-radius:50%;box-shadow:0 0 0 1px var(--line2)}
