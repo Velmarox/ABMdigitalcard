@@ -2,7 +2,7 @@
 
 Aurora Casino digital business card — single-page site (index.html) deployed to Firebase Hosting via GitHub Actions.
 
-Current version: **v0.1.1-alpha** (see CHANGELOG.txt; also `<meta name="version">` in index.html).
+Current version: **v0.1.2-alpha** (see CHANGELOG.txt; also `<meta name="version">` in index.html).
 
 ## Layout
 - `index.html` — the whole app (card front, expanded sheet, promos, vCard).

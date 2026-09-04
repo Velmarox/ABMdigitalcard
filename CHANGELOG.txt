@@ -6,6 +6,11 @@ Deployed web repo: the version lives in <meta name="version"> in index.html and 
 not on the root folder name (renaming the root would break Firebase/Actions paths).
 Archived (outgoing-version) copies live in _version_archive/, never in the working tree.
 
+v0.1.2-alpha (2026-09-04)
+- Flip button reads "TAP HERE" constantly (arrows alternation removed); soft blink kept.
+- Mobile: front flip button sits centered just below the card (thumb zone) instead of the corner.
+  (archived: _version_archive/auroradigitalcard_v0.1.1-alpha/index.html)
+
 v0.1.1-alpha (2026-09-04)
 - Fix: opened sheet overflowed the viewport on phones <=415px (contact/venue panels, hours chip, map,
   Get Directions clipped at right edge). .cols columns now minmax(0,1fr) with min-width:0 on children;
