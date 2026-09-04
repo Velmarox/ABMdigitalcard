@@ -6,6 +6,12 @@ Deployed web repo: the version lives in <meta name="version"> in index.html and 
 not on the root folder name (renaming the root would break Firebase/Actions paths).
 Archived (outgoing-version) copies live in _version_archive/, never in the working tree.
 
+v0.1.1-alpha (2026-09-04)
+- Fix: opened sheet overflowed the viewport on phones <=415px (contact/venue panels, hours chip, map,
+  Get Directions clipped at right edge). .cols columns now minmax(0,1fr) with min-width:0 on children;
+  .contact .hours wraps instead of forcing max-content width.
+  (archived: _version_archive/auroradigitalcard_v0.1.0-alpha/index.html)
+
 v0.1.0-alpha (2026-09-04)
 - Initial versioned release of the Aurora Casino digital business card.
 - Flip buttons (both sides): "TAP HERE" / circle-arrows alternating on a calm 3.2s ambient pulse;

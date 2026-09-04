@@ -4,7 +4,11 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "_version_archive/**",
+      "README.md",
+      "CHANGELOG.txt",
+      "skills-lock.json"
     ],
     "rewrites": [
       {
