@@ -1,0 +1,19 @@
+AURORADIGITALCARD - CHANGELOG
+Versioning scheme: v#.#.#-[stage] (semver)
+Patch = fixes | Minor = new content (patch resets) | Major 0 until launch (v1.0.0)
+Stages: -alpha → -beta at feature-complete → -rc1 when launch-ready → v1.0.0 gold
+Deployed web repo: the version lives in <meta name="version"> in index.html and here,
+not on the root folder name (renaming the root would break Firebase/Actions paths).
+Archived (outgoing-version) copies live in _version_archive/, never in the working tree.
+
+v0.1.0-alpha (2026-09-04)
+- Initial versioned release of the Aurora Casino digital business card.
+- Flip buttons (both sides): "TAP HERE" / circle-arrows alternating on a calm 3.2s ambient pulse;
+  pinned to the viewport corner on mobile (<=820px).
+- Drop shadows + hover lift on Google review chip, Call/Text/Email, links, Save contact, review CTA.
+- Save contact is a neutral bordered box (no magenta fill).
+- "Get Directions" and "Today's featured promo" text set to white.
+- Email set to adsem.bradley@gmail.com (button + vCard).
+- Name on card front measures real text width and shrinks to clear the AURORA CASINO mark.
+- Removed stray closing brace after the mobile media block.
+- Added <meta name="version"> to index.html; added CHANGELOG.txt and _version_archive/.
